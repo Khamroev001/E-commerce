@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ChsbProject</string>
+    <string name="_60_20">$ 60.20</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="delivery">Delivery:</string>
+    <string name="total_cost">Total Cost</string>
+    <string name="your_cart_is_empty">Your cart is empty</string>
+    <string name="nike_shoes">Nike Shoes</string>
+    <string name="bestseller">Best Seller</string>
+    <string name="favourites">Favourites</string>
+    <string name="looking">Looking for shoes</string>
+    <string name="no_fav_sneakers">No favourite sneakers</string>
+    <string name="choose">Choose Language</string>
+    <string name="my_cart">My Cart</string>
+    <string name="item">item</string>
+</resources>
