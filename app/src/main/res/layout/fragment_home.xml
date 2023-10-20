@@ -59,33 +59,32 @@
 
     </LinearLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editLay"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        app:boxBackgroundColor= "@color/white"
-        app:boxCornerRadiusBottomEnd="14dp"
-        app:boxCornerRadiusBottomStart="14dp"
-
-        app:boxCornerRadiusTopEnd="14dp"
-        app:boxCornerRadiusTopStart="14dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="1.5dp"
-        app:startIconDrawable="@drawable/search">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/pop_medium"
             android:hint="@string/looking"
             android:imeOptions="actionDone"
-            android:inputType="text" />
+            android:inputType="text"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeWidth="0dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:boxStrokeWidthFocused="1.5dp"
+            app:boxBackgroundColor= "@color/white"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:startIconDrawable="@drawable/search"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_category_rv"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constRv"

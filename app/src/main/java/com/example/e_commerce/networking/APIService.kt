@@ -20,11 +20,24 @@ interface APIService {
     @GET("/products/{id}")
     fun getProduct(@Path("id") id: Int): Call<Product>
 
-    @GET("products/search")
-    fun searchByName(@Query("q") name: String): Call<ProductData>
+
+    @GET("/products/search")
+    fun search(@Query("q") query : String): Call<ProductData>
+
+
+    @POST("/auth/login")
+    fun search(@Body login: Login): Call<User>
+
 
     @POST("/auth/login")
     fun login(@Body login: Login): Call<User>
+
+    @GET("/products/categories")
+    fun getCategories(): Call<List<String>>
+
+    @GET("/products/category/{category}")
+    fun getByCategory(@Path("category") category : String): Call<ProductData>
+
 
 
 }

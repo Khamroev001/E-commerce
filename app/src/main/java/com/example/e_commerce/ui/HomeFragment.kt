@@ -6,12 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_commerce.R
+import com.example.e_commerce.adapter.CategoryAdapter
 import com.example.e_commerce.adapter.RvAdapter
 import com.example.e_commerce.databinding.FragmentHomeBinding
 import com.example.e_commerce.model.Product
@@ -41,8 +44,80 @@ lateinit var api:APIService
         binding=FragmentHomeBinding.inflate(layoutInflater,container,false)
         api=APIClient.getInstance().create(APIService::class.java)
         var list = listOf<Product>()
+        var lastSearch = ""
 //        var adapter =RvAdapter(requireContext(),list)
 //        binding.rv.adapter= adapter
+
+
+
+        binding.homeCategoryRv.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+
+        binding.homeFilterFab.setOnClickListener {
+            if (binding.homeCategoryRv.isVisible) binding.homeCategoryRv.visibility = View.GONE
+            else binding.homeCategoryRv.visibility = View.VISIBLE
+        }
+
+
+        api.getCategories().enqueue(object : Callback<List<String>> {
+            override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
+                val categories = response.body()!!
+                binding.homeCategoryRv.adapter = CategoryAdapter(
+                    categories,
+                    requireContext(),
+                    binding.homeCategoryRv,
+                    object : CategoryAdapter.CategoryPressed {
+                        override fun onPressed(category: String) {
+                            if (category == "") {
+                                api.getAllProducts().enqueue(object : Callback<ProductData>{
+                                    override fun onResponse(
+                                        call: Call<ProductData>,
+                                        response: Response<ProductData>
+                                    ) {
+                                        val products = response.body()!!.products
+                                        changeProductsAdapter(products)
+                                    }
+
+                                    override fun onFailure(call: Call<ProductData>, t: Throwable) {
+                                        Log.d("TAG", "$t")
+                                    }
+
+                                })
+                            } else {
+                                api.getByCategory(category).enqueue(object : Callback<ProductData> {
+                                    override fun onResponse(
+                                        call: Call<ProductData>,
+                                        response: Response<ProductData>
+                                    ) {
+                                        val products = response.body()?.products!!
+                                        changeProductsAdapter(products)
+                                    }
+
+                                    override fun onFailure(call: Call<ProductData>, t: Throwable) {
+                                        Log.d("TAG", "$t")
+                                    }
+                                })
+                            }
+                        }
+
+                    })
+            }
+
+            override fun onFailure(call: Call<List<String>>, t: Throwable) {
+
+            }
+
+        })
+
+
+
+
+
+
+
+
+
         binding.rv.layoutManager=GridLayoutManager(requireContext(),2,GridLayoutManager.VERTICAL,false)
         api.getAllProducts().enqueue(object : Callback<ProductData> {
             override fun onResponse(call: Call<ProductData>, response: Response<ProductData>) {
@@ -74,9 +149,66 @@ lateinit var api:APIService
 
 
 
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query == lastSearch) return false
+
+                api.search(query!!).enqueue(object : Callback<ProductData>{
+                    override fun onResponse(
+                        call: Call<ProductData>,
+                        response: Response<ProductData>
+                    ) {
+                        val products = response.body()!!.products
+                        changeProductsAdapter(products)
+                    }
+
+                    override fun onFailure(call: Call<ProductData>, t: Throwable) {
+                        Log.d("TAG", "$t")
+                    }
+
+                })
+                lastSearch = query
+
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         return binding.root
     }
+    fun changeProductsAdapter(products: List<Product>) {
+        binding.rv.adapter =
+            RvAdapter(requireContext(), products , object : RvAdapter.myInterface {
 
+                override fun onclick(products: Product) {
+                    val bundle = Bundle()
+                    bundle.putSerializable("product", products)
+                    findNavController().navigate(
+                        R.id.action_homeFragment_to_productFragment,
+                        bundle
+                    )
+                }
+            })
+    }
 
 
 
