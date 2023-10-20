@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/product_parent_constraint"
     android:animateLayoutChanges="true"
-    tools:context="ProductFragment">
+    tools:context="ui.ProductFragment">
 
 
     <androidx.viewpager2.widget.ViewPager2

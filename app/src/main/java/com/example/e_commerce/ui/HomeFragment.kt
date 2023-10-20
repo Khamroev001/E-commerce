@@ -6,9 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.e_commerce.R
 import com.example.e_commerce.adapter.RvAdapter
 import com.example.e_commerce.databinding.FragmentHomeBinding
 import com.example.e_commerce.model.Product
@@ -46,7 +49,13 @@ lateinit var api:APIService
                 if (response.isSuccessful && response.body() != null)
                    list= response.body()!!.products
                 Log.d("LIST",list.toString())
-                var adapter =RvAdapter(requireContext(),list)
+                var adapter =RvAdapter(requireContext(),list, object : RvAdapter.myInterface{
+                    override fun onclick(products: Product) {
+                        var bundle= bundleOf("product" to products)
+                        findNavController().navigate(R.id.action_homeFragment_to_productFragment,bundle)
+                    }
+
+                })
                 binding.rv.adapter= adapter
             }
 

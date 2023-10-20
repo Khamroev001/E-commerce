@@ -16,12 +16,6 @@
         android:paddingTop="12dp">
 
         <ImageView
-            android:id="@+id/favBtn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/fav_border" />
-
-        <ImageView
             android:id="@+id/img"
             android:layout_width="match_parent"
             android:layout_height="100dp"

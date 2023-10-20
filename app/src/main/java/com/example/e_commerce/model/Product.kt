@@ -1,5 +1,7 @@
 package com.example.e_commerce.model
 
+import java.io.Serializable
+
 data class Product(
     val brand: String,
     val category: String,
@@ -12,4 +14,4 @@ data class Product(
     val stock: Int,
     val thumbnail: String,
     val title: String
-)
+):Serializable

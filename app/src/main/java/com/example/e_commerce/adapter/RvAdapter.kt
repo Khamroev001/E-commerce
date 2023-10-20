@@ -13,12 +13,11 @@ import coil.load
 import com.example.e_commerce.R
 import com.example.e_commerce.model.Product
 
-class RvAdapter(var context: Context, var products: List<Product>) : RecyclerView.Adapter<RvAdapter.MyHolder>() {
+class RvAdapter(var context: Context, var products: List<Product>, var myInter: myInterface) : RecyclerView.Adapter<RvAdapter.MyHolder>() {
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.img)
         val name: TextView = itemView.findViewById(R.id.name)
         val price: TextView = itemView.findViewById(R.id.price)
-        val favBtn: ImageView = itemView.findViewById(R.id.favBtn)
         val plusBtn: ConstraintLayout = itemView.findViewById(R.id.plusBtn)
     }
 
@@ -33,23 +32,6 @@ class RvAdapter(var context: Context, var products: List<Product>) : RecyclerVie
         holder.name.text = product.title
         holder.price.text = "$ ${product.price}"
 
-//        holder.favBtn.setOnClickListener {
-//            product.isFavourite = !product.isFavourite
-//
-//            if (sneaker.isFavourite) {
-//                holder.favBtn.setBackgroundResource(R.drawable.fav)
-//            }
-//            else {
-//                holder.favBtn.setBackgroundResource((R.drawable.fav_border))
-//            }
-//        }
-
-//        if (sneaker.isFavourite) {
-//            holder.favBtn.setBackgroundResource(R.drawable.fav)
-//        }
-//        else {
-//            holder.favBtn.setBackgroundResource((R.drawable.fav_border))
-//        }
 
         holder.plusBtn.setOnClickListener {
 //            product.isAddedToCart = true
@@ -57,14 +39,14 @@ class RvAdapter(var context: Context, var products: List<Product>) : RecyclerVie
         }
 
         holder.itemView.setOnClickListener {
-//            var intent = Intent(context, SneakerDetail::class.java)
-//            intent.putExtra("sneakers", sneakers as java.io.Serializable)
-//            intent.putExtra("index", position)
-//            context.startActivity(intent)
+            myInter.onclick(product)
         }
     }
 
     override fun getItemCount(): Int {
         return products.size
+    }
+    interface myInterface{
+        fun onclick(products: Product)
     }
 }
