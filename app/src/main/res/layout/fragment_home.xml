@@ -69,6 +69,7 @@
         app:boxBackgroundColor= "@color/white"
         app:boxCornerRadiusBottomEnd="14dp"
         app:boxCornerRadiusBottomStart="14dp"
+
         app:boxCornerRadiusTopEnd="14dp"
         app:boxCornerRadiusTopStart="14dp"
         app:boxStrokeWidth="0dp"
