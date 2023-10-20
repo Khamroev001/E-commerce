@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/raleway_bold"
-            android:text="@string/nike_shoes"
+            android:text="E-commerce"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30sp" />
@@ -42,15 +42,20 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <ImageView
-            android:id="@+id/favAppBarBtn"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/circle"
-            android:padding="12dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/fav_border" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/home_filter_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:backgroundTint="#2196F3"
+            app:tint="@color/white"
+            app:elevation="2dp"
+            app:fabCustomSize="46dp"
+            android:src="@drawable/baseline_category_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </LinearLayout>
 
