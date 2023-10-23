@@ -11,9 +11,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.e_commerce.R
+import com.example.e_commerce.model.MyBottomSheet
 import com.example.e_commerce.model.Product
 
-class RvAdapter(var context: Context, var products: List<Product>, var myInter: myInterface) : RecyclerView.Adapter<RvAdapter.MyHolder>() {
+class RvAdapter(var context: Context, var products: List<Product>, var myInter: myInterface, private val bottomSheetInterface: MyBottomSheet.BottomSheetInterface) : RecyclerView.Adapter<RvAdapter.MyHolder>() {
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.img)
         val name: TextView = itemView.findViewById(R.id.name)
@@ -34,8 +35,10 @@ class RvAdapter(var context: Context, var products: List<Product>, var myInter: 
 
 
         holder.plusBtn.setOnClickListener {
-//            product.isAddedToCart = true
+
             Toast.makeText(context, "Savatchaga qo'shildi", Toast.LENGTH_SHORT).show()
+
+            myInter.addtoCart(product)
         }
 
         holder.itemView.setOnClickListener {
@@ -48,5 +51,6 @@ class RvAdapter(var context: Context, var products: List<Product>, var myInter: 
     }
     interface myInterface{
         fun onclick(products: Product)
+        fun addtoCart(products: Product)
     }
 }

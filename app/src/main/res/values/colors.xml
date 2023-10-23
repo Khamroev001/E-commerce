@@ -12,4 +12,16 @@
     <color name="e8">#F3F3F3</color>
     <color name="primaryColor">#0D6EFD</color>
     <color name="transparent">#000D6EFD</color>
+
+    <color name="black2">#151515</color>
+
+    <color name="gray_10">#f3f3f3</color>
+    <color name="gray_40">#B6B6B6</color>
+
+    <color name="blue2">#2196F3</color>
+    <color name="gray_transparent">#BFBFBF</color>
+    <color name="price_color">#005D67</color>
+
+    <color name="text_black">#2d2d2d</color>
+    <color name="text_gray">#535353</color>
 </resources>

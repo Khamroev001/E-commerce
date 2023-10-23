@@ -11,7 +11,7 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/product_iamge_vp"
-        android:background="#111111"
+        android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:id="@+id/product_screen_back_fab"
-        android:backgroundTint="#AEACAC"
+        android:backgroundTint="#12CCFA"
         android:src="@drawable/back_icon"
         app:elevation="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:text="500 $"
-                    android:textColor="#005D67"
+                    android:textColor="#808CB6"
                     android:id="@+id/product_screen_price"
                     android:textSize="28sp"
                     android:textStyle="bold"/>
@@ -97,6 +97,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
+        android:id="@+id/addtocart"
         app:cornerRadius="8dp"
         android:backgroundTint="#2196F3"
         android:text="Add to cart"

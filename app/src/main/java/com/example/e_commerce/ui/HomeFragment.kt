@@ -17,10 +17,12 @@ import com.example.e_commerce.R
 import com.example.e_commerce.adapter.CategoryAdapter
 import com.example.e_commerce.adapter.RvAdapter
 import com.example.e_commerce.databinding.FragmentHomeBinding
+import com.example.e_commerce.model.MyBottomSheet
 import com.example.e_commerce.model.Product
 import com.example.e_commerce.model.ProductData
 import com.example.e_commerce.networking.APIClient
 import com.example.e_commerce.networking.APIService
+import com.example.e_commerce.utils.SharedPrefHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,6 +61,10 @@ lateinit var api:APIService
             else binding.homeCategoryRv.visibility = View.VISIBLE
         }
 
+        binding.cartBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
+
+        }
 
         api.getCategories().enqueue(object : Callback<List<String>> {
             override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
@@ -130,6 +136,27 @@ lateinit var api:APIService
                         findNavController().navigate(R.id.action_homeFragment_to_productFragment,bundle)
                     }
 
+                    override fun addtoCart(products: Product) {
+                        val bundle = Bundle()
+                        bundle.putInt("quantity", 1)
+                        bundle.putSerializable("product", products)
+                        findNavController().navigate(R.id.action_homeFragment_to_cartFragment, bundle)
+
+                    }
+
+                }, object : MyBottomSheet.BottomSheetInterface{
+                    override fun onAdd(product: Product, quantity: Int) {
+                        val shared = SharedPrefHelper.getInstance(requireContext())
+                        val bundle = Bundle()
+                        bundle.putInt("quantity", quantity)
+                        bundle.putSerializable("product", product)
+                        if (shared.getUser() == null){
+//                            findNavController().navigate(R.id.action_homeFragment_to_loginFragment, bundle)
+//                        }else{
+                            findNavController().navigate(R.id.action_homeFragment_to_cartFragment, bundle)
+                        }
+                    }
+
                 })
                 binding.rv.adapter= adapter
             }
@@ -195,18 +222,41 @@ lateinit var api:APIService
 
         return binding.root
     }
+
+
     fun changeProductsAdapter(products: List<Product>) {
         binding.rv.adapter =
-            RvAdapter(requireContext(), products , object : RvAdapter.myInterface {
-
-                override fun onclick(products: Product) {
+            RvAdapter( requireContext(),products, object : RvAdapter.myInterface {
+                override fun onclick(product: Product) {
                     val bundle = Bundle()
-                    bundle.putSerializable("product", products)
+                    bundle.putSerializable("product", product)
                     findNavController().navigate(
                         R.id.action_homeFragment_to_productFragment,
                         bundle
                     )
                 }
+
+                override fun addtoCart(products: Product) {
+                    val bundle = Bundle()
+                    bundle.putInt("quantity", 1)
+                    bundle.putSerializable("product", products)
+                    findNavController().navigate(R.id.action_homeFragment_to_cartFragment, bundle)
+
+                }
+            }
+                , object : MyBottomSheet.BottomSheetInterface{
+                override fun onAdd(product: Product, quantity: Int) {
+                    val shared = SharedPrefHelper.getInstance(requireContext())
+                    val bundle = Bundle()
+                    bundle.putInt("quantity", quantity)
+                    bundle.putSerializable("product", product)
+                    if (shared.getUser() == null){
+//                        findNavController().navigate(R.id.action_homeFragment_to_loginFragment, bundle)
+                    }else{
+                        findNavController().navigate(R.id.action_homeFragment_to_cartFragment, bundle)
+                    }
+                }
+
             })
     }
 

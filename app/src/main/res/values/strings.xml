@@ -13,4 +13,20 @@
     <string name="choose">Choose Language</string>
     <string name="my_cart">My Cart</string>
     <string name="item">item</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="product_title">Product title</string>
+    <string name="price">Price:</string>
+    <string name="_500">500 $</string>
+    <string name="quantity">Quantity:</string>
+    <string name="_1">1</string>
+    <string name="total">Total:</string>
+    <string name="_1000">1000 $</string>
+    <string name="are_you_sure_you_want_to_log_out">Are you sure you want to log out ?</string>
+    <string name="log_out">Log out ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="user_image">user image</string>
+    <string name="category_filter">Category filter</string>
 </resources>
