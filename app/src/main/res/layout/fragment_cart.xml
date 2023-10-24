@@ -32,7 +32,7 @@
         android:id="@+id/cart_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Firstname Lastname"
+        android:text="Sattor Xamroev"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/cart_username"
         app:layout_constraintStart_toStartOf="@+id/cart_username" />

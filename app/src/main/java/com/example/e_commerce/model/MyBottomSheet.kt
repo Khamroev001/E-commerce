@@ -18,7 +18,7 @@ class MyBottomSheet(context: Context, private val product: Product, private val 
             .layout.add_to_cart_bottom_sheet, null)
         val title: TextView = view.findViewById(R.id.bottom_sheet_title)
         val brand: TextView = view.findViewById(R.id.bottom_sheet_brand)
-        val rating: TextView = view.findViewById(R.id.bottom_sheet_rating)
+//        val rating: TextView = view.findViewById(R.id.)
         val price: TextView = view.findViewById(R.id.bottom_sheet_price)
         val priceTotal: TextView = view.findViewById(R.id.bottom_sheet_price_total)
         val quantity: TextView = view.findViewById(R.id.bottom_sheet_quantity)
@@ -29,7 +29,7 @@ class MyBottomSheet(context: Context, private val product: Product, private val 
 
         title.text = product.title
         brand.text = product.brand
-        rating.text = ((product.rating * 10).roundToInt().toDouble() / 10).toString()
+//        rating.text = ((product.rating * 10).roundToInt().toDouble() / 10).toString()
         price.text = "${product.price} $"
         priceTotal.text = "${product.price} $"
         plus.setOnClickListener {
