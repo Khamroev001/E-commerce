@@ -22,7 +22,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:id="@+id/product_screen_back_fab"
-        android:backgroundTint="#12CCFA"
+        android:backgroundTint="@color/white"
         android:src="@drawable/back_icon"
         app:elevation="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,32 +32,40 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_iamge_vp" >
+        app:layout_constraintTop_toBottomOf="@+id/product_iamge_vp"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="153dp">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:orientation="vertical">
+
             <TextView
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
+                android:id="@+id/product_screen_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:text="Title"
                 android:textSize="26sp"
-                android:id="@+id/product_screen_title"/>
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/product_screen_brand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Apple"
-                android:textSize="14sp"
-                android:id="@+id/product_screen_brand"/>
+                android:textSize="14sp" />
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -65,6 +73,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/product_item_brand"
                     app:layout_constraintTop_toBottomOf="@+id/product_item_brand" />
+
                 <TextView
                     android:id="@+id/product_screen_rating"
                     android:layout_width="wrap_content"
@@ -73,25 +82,27 @@
                     android:text="4.5"
                     android:textColor="#605E5E"
                     android:textSize="22sp" />
+
                 <TextView
-                    android:layout_marginStart="36dp"
+                    android:id="@+id/product_screen_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
+                    android:layout_marginStart="36dp"
                     android:text="500 $"
                     android:textColor="#808CB6"
-                    android:id="@+id/product_screen_price"
                     android:textSize="28sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <TextView
-                android:layout_marginTop="6dp"
-                android:layout_marginHorizontal="6dp"
+                android:id="@+id/product_screen_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:layout_marginTop="6dp"
                 android:text="A sa asd asdasdas,mnd a,ms anma,sn dams,nd asm,dnmsnad asdnmas d,masn sam,dn ams,dn as,mdn as,mnd m,asndma,s ndma,sndam,sndasdgvhasgd vashgdva hsgdv ahsgdva shgdasvh dsahg"
-                android:id="@+id/product_screen_description"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 

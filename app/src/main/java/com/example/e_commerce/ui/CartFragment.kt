@@ -24,16 +24,10 @@ import com.example.e_commerce.utils.SharedPrefHelper
 import retrofit2.Call
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 @Suppress("DEPRECATION")
 class CartFragment : Fragment() {
     var product: Product? = null
@@ -83,7 +77,7 @@ class CartFragment : Fragment() {
         binding.cartUserImage.load(user.image)
         binding.cartName.text = user.firstName + " " + user.lastName
         binding.cartUsername.text = "@${user.username}"
-        binding.cartEmail.text = user.email
+
     }
 
     private fun setCart() {

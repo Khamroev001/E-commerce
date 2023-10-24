@@ -4,81 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgforlogin"
     tools:context=".ui.LoginFragment">
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:id="@+id/login_back_fab"
-        android:backgroundTint="@color/white"
-        app:rippleColor="@color/gray_40"
-        android:src="@drawable/back_icon"
-        app:elevation="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bgforlogin"
+        tools:context=".ui.LoginFragment">
 
 
-
-
-        <TextView
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/login_back_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="42dp"
-            android:text="Log in to your account"
-            android:textSize="42sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/back_icon"
+            app:elevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/gray_40" />
 
-            android:textStyle="bold" />
-
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/login_username"
-            style="@style/Widget.Material3.TextInputEditText.FilledBox"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="42dp"
-            android:hint="Username"
-            android:background="@drawable/edit_text_shape"
-            android:inputType="textEmailAddress"
-            android:maxLines="1" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/login_password"
-            style="@style/Widget.Material3.TextInputEditText.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="24dp"
-            android:hint="Password"
-            android:background="@drawable/edit_text_shape"
-            android:inputType="textPassword"
-            android:maxLines="1" />
+            android:layout_marginHorizontal="12dp"
+            android:background="@drawable/gradient"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_login_mb"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="12dp"
-            android:layout_marginBottom="16dp"
-            android:text="Log in"
-            android:backgroundTint="@color/blue2"
-            android:textStyle="bold"
-            app:cornerRadius="32dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="42dp"
+                android:gravity="center"
+                android:text="Log in to your account"
+                android:textColor="@color/white"
+                android:textSize="38sp"
+
+                android:textStyle="bold" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_username"
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="42dp"
+                android:background="@drawable/edit_text_shape"
+                android:hint="Username"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_password"
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/edit_text_shape"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_login_mb"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="12dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/blue2"
+                android:text="Log in"
+                android:textStyle="bold"
+                app:cornerRadius="32dp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_ikki"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.CartFragment">
 
@@ -10,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/cart_back_fab"
         android:backgroundTint="@color/white"
 
@@ -19,11 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+<ImageView
         android:id="@+id/cart_user_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="69dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="4dp"
         android:src="@drawable/avatar_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cart_back_fab" />
@@ -32,38 +34,31 @@
         android:id="@+id/cart_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sattor Xamroev"
+        android:text="Xamroyev Sattor"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/cart_username"
-        app:layout_constraintStart_toStartOf="@+id/cart_username" />
+        app:layout_constraintStart_toEndOf="@+id/cart_user_image"
+        app:layout_constraintTop_toBottomOf="@+id/cart_back_fab" />
 
     <TextView
         android:id="@+id/cart_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="89dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="12dp"
         android:text="Username"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/cart_email"
-        app:layout_constraintStart_toStartOf="@+id/cart_email" />
-
-    <TextView
-        android:id="@+id/cart_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="esadasd@email.com"
-        android:layout_marginStart="12dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cart_user_image"
-        app:layout_constraintStart_toEndOf="@+id/cart_user_image" />
+        app:layout_constraintEnd_toEndOf="@+id/cart_name"
+        app:layout_constraintStart_toEndOf="@+id/cart_user_image"
+        app:layout_constraintTop_toBottomOf="@+id/cart_name" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_recycler"
-        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cart_email" />
-
+        app:layout_constraintTop_toBottomOf="@+id/cart_username"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-26dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
